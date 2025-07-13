@@ -1,0 +1,7 @@
+[user]
+	name = りおちん
+	email = 118029.ichikama@gmail.com
+[init]
+	defaultBranch = main
+[core]
+	editor = code --wait
