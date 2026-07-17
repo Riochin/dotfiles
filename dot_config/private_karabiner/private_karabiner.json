@@ -1,0 +1,49 @@
+{
+    "profiles": [
+        {
+            "name": "Default profile",
+            "selected": true,
+            "simple_modifications": [
+                {
+                    "from": { "key_code": "caps_lock" },
+                    "to": [{ "key_code": "left_command" }]
+                },
+                {
+                    "from": { "key_code": "left_command" },
+                    "to": [{ "key_code": "japanese_eisuu" }]
+                },
+                {
+                    "from": { "key_code": "right_command" },
+                    "to": [{ "key_code": "japanese_kana" }]
+                }
+            ],
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "WezTerm: caps(cmd)+delete で行頭まで削除 (Ctrl-X Ctrl-H)",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "delete_or_backspace",
+                                    "modifiers": { "mandatory": ["left_command"] }
+                                },
+                                "to": [
+                                    { "key_code": "x", "modifiers": ["left_control"] },
+                                    { "key_code": "h", "modifiers": ["left_control"] }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_if",
+                                        "bundle_identifiers": ["^com\\.github\\.wez\\.wezterm$"]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+        }
+    ]
+}

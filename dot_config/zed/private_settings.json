@@ -1,0 +1,65 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "cli_default_open_behavior": "existing_window",
+  "icon_theme": "Catppuccin Frappé",
+  "soft_wrap": "prefer_line",
+  "tabs": {
+    "show_diagnostics": "all"
+  },
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
+    }
+  },
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  /* Duplicated key auto-commented: "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  }, */
+  "git_panel": {
+    "dock": "left"
+  },
+  "agent": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-latest"
+    },
+  },
+  "edit_predictions": {
+    "disabled_globs": [],
+    "mode": "eager_preview"
+  },
+  "vim_mode": false,
+  "ui_font_size": 16,
+  "buffer_font_size": 12.0,
+  "theme": {
+    "mode": "dark",
+    "light": "One Dark",
+    "dark": "Catppuccin Mocha"
+  },
+  "lsp": {
+    "jdtls": {
+      "settings": {
+        "java": {
+          "home": "/Library/Java/JavaVirtualMachines/jdk-22.jdk/Contents/Home"
+        }
+      }
+    }
+  }
+}
