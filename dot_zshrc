@@ -1,3 +1,6 @@
+# 起動時の挨拶（instant prompt のキャッシュに巻き込まれないよう最上部で読み込む）
+[[ -f ~/.zsh_greeting.zsh ]] && source ~/.zsh_greeting.zsh
+
 # インスタントプロンプトの設定
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
@@ -184,7 +187,6 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # alias cdb='cd-bookmark'
 
 export PATH=$HOME/.progate/bin:$PATH
-export PATH=$(npm bin -g):$PATH
 export PATH=$HOME/.npm-global/bin:$PATH
 
 export NVM_DIR="$HOME/.nvm"
@@ -207,9 +209,32 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-export PATH0/usr/local/mysql/bin:$PATH
-export PATH=/usr/local/mysql/bin:$PATH
-export PATH=/usr/local/mysql/bin:$PATH
 export PATH=/usr/local/mysql/bin:$PATH
 eval "$(rbenv init - zsh)"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+. "$HOME/.local/bin/env"
+export PATH="$HOME/.local/bin:$PATH"
+
+# bun completions
+[ -s "/Users/irj0927/.bun/_bun" ] && source "/Users/irj0927/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+# go - dlv
+export PATH="$PATH:$(go env GOPATH)/bin"
+export PATH="/opt/homebrew/bin:$PATH"
+
+eval "$(direnv hook zsh)"
+
+# prompt star (static — animated version broke arrow-key history via TMOUT/TRAPALRM
+# interrupting escape-sequence reads mid-read)
+typeset -g PROMPT_STAR='✦✦'
+
+# WezTermの cmd+delete 用: カーソル位置から行頭までを削除する
+bindkey '^X^H' backward-kill-line
