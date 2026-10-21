@@ -1,0 +1,154 @@
+tap "homebrew/autoupdate"
+tap "homebrew/services"
+tap "libsql/sqld"
+tap "nkzw-tech/tap"
+tap "phasehq/cli"
+tap "supabase/tap"
+tap "tursodatabase/tap"
+tap "weaveworks/tap"
+# Next generation of apngasm, the APNG assembler
+brew "apngasm"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+# Cloudflare Tunnel client (formerly Argo Tunnel)
+brew "cloudflared"
+# Dependency manager for Cocoa projects
+brew "cocoapods"
+# Load/unload environment variables based on $PWD
+brew "direnv"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
+# Banner-like program prints strings as ASCII art
+brew "figlet"
+# GNU compiler collection
+brew "gcc"
+# GitHub command-line tool
+brew "gh"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
+# GNU Privacy Guard (OpenPGP)
+brew "gnupg"
+# Kubernetes package manager
+brew "helm"
+# Improved top (interactive process viewer)
+brew "htop"
+# Kubernetes CLI To Manage Your Clusters In Style!
+brew "k9s"
+# Run local Kubernetes cluster in Docker
+brew "kind"
+# Clone of ls with colorful output, file type icons, and more
+brew "lsd"
+# Polyglot runtime manager (asdf rust clone)
+brew "mise"
+# Open source relational database management system
+brew "mysql"
+# Open source relational database management system
+brew "mysql@8.0"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Simplistic interactive filtering tool
+brew "peco"
+# Fast, disk space efficient package manager
+brew "pnpm"
+# Object-relational database system
+brew "postgresql@14"
+# Persistence Of Vision RAYtracer (POVRAY)
+brew "povray"
+# Formatting technology for Swift source code
+brew "swift-format"
+# Tool to build, change, and version infrastructure
+brew "terraform"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Vi 'workalike' with many additional features
+brew "vim"
+# Watch files and take action when they change
+brew "watchman"
+# JavaScript package manager
+brew "yarn"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Free and open-source web browser
+cask "chromium"
+# Terminal-based AI coding assistant
+cask "claude-code"
+# Visual diff tool for Git changes
+cask "nkzw-tech/tap/codiff", trusted: true
+cask "font-hackgen"
+cask "font-hackgen-nerd"
+cask "font-monocraft"
+cask "font-scientifica"
+cask "font-spleen"
+cask "font-terminus"
+# Reverse proxy, secure introspectable tunnels to localhost
+cask "ngrok"
+# Native GUI tool for relational databases
+cask "tableplus"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm"
+vscode "anthropic.claude-code"
+vscode "christian-kohler.path-intellisense"
+vscode "dart-code.dart-code"
+vscode "dart-code.flutter"
+vscode "dbaeumer.vscode-eslint"
+vscode "docker.docker"
+vscode "dracula-theme.theme-dracula"
+vscode "eamodio.gitlens"
+vscode "ecmel.vscode-html-css"
+vscode "esbenp.prettier-vscode"
+vscode "formulahendry.auto-close-tag"
+vscode "formulahendry.auto-rename-tag"
+vscode "github.vscode-github-actions"
+vscode "golang.go"
+vscode "llvm-vs-code-extensions.lldb-dap"
+vscode "marp-team.marp-vscode"
+vscode "mechatroner.rainbow-csv"
+vscode "mosapride.zenkaku"
+vscode "ms-ceintl.vscode-language-pack-ja"
+vscode "ms-dotnettools.csdevkit"
+vscode "ms-dotnettools.csharp"
+vscode "ms-dotnettools.vscode-dotnet-modernize"
+vscode "ms-dotnettools.vscode-dotnet-runtime"
+vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
+vscode "ms-python.debugpy"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
+vscode "ms-toolsai.jupyter"
+vscode "ms-toolsai.jupyter-keymap"
+vscode "ms-toolsai.jupyter-renderers"
+vscode "ms-toolsai.vscode-jupyter-cell-tags"
+vscode "ms-toolsai.vscode-jupyter-slideshow"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode.cmake-tools"
+vscode "ms-vscode.cpp-devtools"
+vscode "ms-vscode.cpptools"
+vscode "ms-vscode.cpptools-extension-pack"
+vscode "ms-vscode.live-server"
+vscode "ms-vsliveshare.vsliveshare"
+vscode "naumovs.color-highlight"
+vscode "pkief.material-icon-theme"
+vscode "redhat.java"
+vscode "redhat.vscode-yaml"
+vscode "shahilkumar.docxreader"
+vscode "sweetpad.sweetpad"
+vscode "swiftlang.swift-vscode"
+vscode "twxs.cmake"
+vscode "usernamehw.errorlens"
+vscode "vadimcn.vscode-lldb"
+vscode "vincaslt.highlight-matching-tag"
+vscode "visualstudiotoolsforunity.vstuc"
+vscode "vscjava.migrate-java-to-azure"
+vscode "vscjava.vscode-gradle"
+vscode "vscjava.vscode-java-debug"
+vscode "vscjava.vscode-java-dependency"
+vscode "vscjava.vscode-java-pack"
+vscode "vscjava.vscode-java-test"
+vscode "vscjava.vscode-java-upgrade"
+vscode "vscjava.vscode-maven"
+vscode "vscode-icons-team.vscode-icons"
+vscode "vue.volar"
+vscode "wayou.vscode-todo-highlight"
+npm "corepack"

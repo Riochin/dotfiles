@@ -173,7 +173,7 @@ bindkey '^x^b' anyframe-widget-checkout-git-branch
 
 ## 色つけてくれるやつ
 
-source ~/path/to/f-sy-h/F-Sy-H.plugin.zsh
+zinit light z-shell/F-Sy-H
 
 
 ##過去の入力から候補出してくれるやつ

@@ -12,18 +12,24 @@ chezmoi init --apply Riochin/dotfiles
 続けて、chezmoiの外で管理しているものを設定する:
 
 ```sh
-brew install mise jq
-mise install                                               # ~/.config/mise/config.toml の言語を入れる
-brew tap homebrew/autoupdate
+brew bundle --global                                       # ~/.homebrew/Brewfile のツール・アプリ・VS Code 拡張を入れる
+mise install                                               # ~/.config/mise/config.toml の言語と vercel を入れる
 brew autoupdate start 86400 --upgrade --cleanup            # brew を毎日自動で更新する
 brew pin mysql mysql@8.0 postgresql@14                     # データベースは自動で上げない
+```
+
+brew で入れたものを増やしたり減らしたりしたら、Brewfile を作り直して取り込む:
+
+```sh
+brew bundle dump --global --force && chezmoi re-add ~/.homebrew/Brewfile
 ```
 
 ## 管理しているもの
 
 | ファイル / ディレクトリ | 内容 |
 | --- | --- |
-| `dot_zshrc` → `~/.zshrc` | zsh設定(oh-my-zsh, zinit, anyframe, WezTermのcmd+delete用bindkeyなど) |
+| `dot_zshrc` → `~/.zshrc` | zsh設定(oh-my-zsh, zinit, anyframe, F-Sy-H, WezTermのcmd+delete用bindkeyなど) |
+| `private_dot_homebrew/Brewfile` → `~/.homebrew/Brewfile` | brewのツール・cask・tap・VS Code拡張の一覧(`brew bundle --global` で使う) |
 | `dot_zprofile` → `~/.zprofile` | zshログインシェル設定 |
 | `dot_zsh_greeting.zsh` → `~/.zsh_greeting.zsh` | 起動時の挨拶と、brew・miseの更新件数の表示 |
 | `dot_p10k.zsh` → `~/.p10k.zsh` | Powerlevel10kのプロンプト設定 |

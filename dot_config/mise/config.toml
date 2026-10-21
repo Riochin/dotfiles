@@ -4,6 +4,7 @@ idiomatic_version_file_enable_tools = ["node"]
 [tools]
 go = "1.27"
 node = "24"
+"npm:vercel" = "latest"
 python = "3.13"
 ruby = "3"
 uv = "latest"
