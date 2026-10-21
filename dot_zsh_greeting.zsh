@@ -60,5 +60,44 @@ _show_greeting() {
   printf '\033[38;2;245;194;231m  %s  %s  %s\033[0m\n\n' "$emoji" "$(date '+%Y/%m/%d (%a)  %H:%M')" "$emoji"
 }
 
+# brew と mise の更新件数を調べて $1 に書く。時間がかかるので裏で実行する
+_refresh_update_status() {
+  emulate -L zsh
+  local out=$1 tmp="$1.$$"
+  mkdir -p "${out:h}"
+  local pinned=$(brew list --pinned 2>/dev/null)
+  local brew_n=$(HOMEBREW_NO_AUTO_UPDATE=1 brew outdated --quiet 2>/dev/null | grep -vxF -e "${pinned:-__none__}" -f <(print -r -- "$pinned") | grep -c .)
+  local mise_list=$(cd ~ && mise outdated --json 2>/dev/null | jq -r 'to_entries | map("\(.key) \(.value.current)→\(.value.latest)") | join(", ")' 2>/dev/null)
+  local mise_n=0
+  [[ -n $mise_list ]] && mise_n=${#${(s:, :)mise_list}}
+  print -r -- "$brew_n" "$mise_n" "$mise_list" > "$tmp" && mv "$tmp" "$out"
+}
+
+# 挨拶の下に、brew と mise の更新件数を 1 行出す。
+# 件数は 6 時間ごとに裏で取り直し、表示は前回の結果を使うので、起動は遅くならない
+_show_update_status() {
+  emulate -L zsh
+  [[ -o interactive && -t 1 ]] || return
+  local cache=${XDG_CACHE_HOME:-$HOME/.cache}/update-status
+  local now=$(date +%s) mtime=0
+  [[ -f $cache ]] && mtime=$(stat -f %m "$cache")
+  if (( now - mtime > 6 * 3600 )); then
+    _refresh_update_status "$cache" &>/dev/null &!
+  fi
+  [[ -r $cache ]] || return
+
+  local brew_n mise_n mise_list
+  read -r brew_n mise_n mise_list < "$cache"
+  if (( brew_n == 0 && mise_n == 0 )); then
+    printf '\033[38;2;166;227;161m  ✓ brew・mise は最新です\033[0m\n\n'
+    return
+  fi
+  local msg="  ↑ 更新あり  brew ${brew_n}件 / mise ${mise_n}件"
+  [[ -n $mise_list ]] && msg+="（${mise_list}）"
+  printf '\033[38;2;250;179;135m%s\033[0m\n' "$msg"
+  printf '\033[38;2;147;153;178m    brew は毎日、mise は毎週月曜に自動で更新されます\033[0m\n\n'
+}
+
 _show_greeting
-unset -f _show_greeting
+_show_update_status
+unset -f _show_greeting _show_update_status

@@ -5,3 +5,5 @@
 	defaultBranch = main
 [core]
 	editor = code --wait
+[http]
+	sslCAInfo = /opt/homebrew/etc/ca-certificates/cert.pem

@@ -1,0 +1,12 @@
+#!/bin/bash
+# mise の週次更新（~/Library/LaunchAgents/dev.riochin.mise-weekly-upgrade.plist）を launchd に登録し直す。
+# plist は置いただけでは動かないので、chezmoi apply で plist が変わったときだけこのスクリプトが走る。
+# plist hash: {{ include "private_Library/LaunchAgents/dev.riochin.mise-weekly-upgrade.plist" | sha256sum }}
+set -euo pipefail
+
+plist="$HOME/Library/LaunchAgents/dev.riochin.mise-weekly-upgrade.plist"
+domain="gui/$(id -u)"
+
+launchctl bootout "$domain" "$plist" 2>/dev/null || true
+launchctl bootstrap "$domain" "$plist"
+echo "launchd に dev.riochin.mise-weekly-upgrade を登録しました"

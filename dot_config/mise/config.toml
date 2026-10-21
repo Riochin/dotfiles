@@ -1,0 +1,14 @@
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
+
+[tools]
+go = "1.27"
+node = "24"
+python = "3.13"
+ruby = "3"
+uv = "latest"
+
+[env]
+# mise の Python / Ruby や curl は既定で macOS の /etc/ssl/cert.pem を読むが、これは更新されない。
+# brew の ca-certificates（brew upgrade で更新される）を読ませる
+SSL_CERT_FILE = "/opt/homebrew/etc/ca-certificates/cert.pem"

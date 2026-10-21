@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- 毎週月曜 10:00 に、mise で入れた言語を同じ系列の最新の修正版に上げる。
+     ~/.config/mise/config.toml は node = "24" のように系列だけを書いているので、24 → 26 のような大きな更新は入らない。
+     スリープ中で実行できなかった回は、次に起きたときに 1 回だけ実行される。 -->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>dev.riochin.mise-weekly-upgrade</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/zsh</string>
+    <string>-c</string>
+    <string>date; /opt/homebrew/bin/mise upgrade --yes &amp;&amp; /opt/homebrew/bin/mise ls --current</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  </dict>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Weekday</key>
+    <integer>1</integer>
+    <key>Hour</key>
+    <integer>10</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+  <key>StandardOutPath</key>
+  <string>/Users/irj0927/Library/Logs/mise-weekly-upgrade.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/irj0927/Library/Logs/mise-weekly-upgrade.log</string>
+</dict>
+</plist>
